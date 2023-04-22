@@ -1,0 +1,1 @@
+Row ID	Order ID	Order Date	Ship Date	Ship Mode	Customer ID	Segment	Postal Code	City	Country	Region	State	Market	Product ID	Category	Sub-Category	Product Name	Sales	Quantity	Discount	Profit	Shipping Cost	Order Priority	Product_PK_L	Customer_PK_L	Ship_PK_L	DateKey_L_Order	DateKey_L_Ship	Order_PK_L	Localisation_PK_L	Quantity_D	Profit_D	Sales_D	Discount_D	Ship_Coast_D

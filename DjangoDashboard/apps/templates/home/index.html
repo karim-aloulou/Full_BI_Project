@@ -1,0 +1,252 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="row">
+
+      <div class="col-12">
+        <div class="card card-chart">
+          <div class="card-header ">
+            <div class="row">
+              <div class="col-sm-6 text-left">
+                <h5 class="card-category">Profits</h5>
+                <h2 class="card-title">Months prediction</h2>
+              </div>
+              <div class="col-sm-6">
+                <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+                  <label class="btn btn-sm btn-primary btn-simple active" id="0">
+                    <input type="radio" name="options" checked>
+                    <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Actual</span>
+                    <span class="d-block d-sm-none">
+                      <i >Actual</i>
+                    </span>
+                  </label>
+                 
+                  <label class="btn btn-sm btn-primary btn-simple" id="2">
+                    <input type="radio" class="d-none" name="options">
+                    <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Next Months</span>
+                    <span class="d-block d-sm-none">
+                      <i >Pred</i>
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="chartBig1"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+       
+        <div class="card card-chart">
+          <div class="card-header">
+            <h5 class="card-category">Quantity</h5>
+            <h2 class="card-title"> Prediction </h2>
+          </div>
+          <div class="card-body">
+            <div >  </div>
+            <div class="chart-area">
+              <canvas  id="chartLinePurple"></canvas>
+              
+            </div>
+          </div>
+        </div>
+         
+      </div>
+      <div class="col-lg-4">
+        <div class="card card-chart">
+          <div class="card-header">
+            <h5 class="card-category">Returns</h5>
+            <h2 class="card-title"> Susceptible Returned Groups </h2>
+           
+          </div>
+          <div class="col-sm-9">
+          <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+                  
+            <label class="btn btn-sm btn-primary btn-simple active " id="4">
+              <input type="radio" class="d-none" name="options" checked>
+              <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Category</span>
+              <span class="d-block d-sm-none">
+                <i >Category</i>
+              </span>
+            </label>
+            <label class="btn btn-sm btn-primary btn-simple" id="5">
+              <input type="radio" class="d-none" name="options">
+              <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Sub-Category</span>
+              <span class="d-block d-sm-none">
+                <i >Sub-Category</i>
+              </span>
+            </label>
+          </div>
+        </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="CountryChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card card-chart">
+          <div class="card-header">
+            <h5 class="card-category">Sales</h5>
+            <h2 class="card-title"> Best Sales </h2>
+            <div class="col-sm-15">
+              <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+                <label class="btn btn-sm btn-primary btn-simple active" id="6">
+                  <input type="radio" name="options" checked>
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">City</span>
+                  <span class="d-block d-sm-none">
+                    <i >City</i>
+                  </span>
+                </label>
+               
+                <label class="btn btn-sm btn-primary btn-simple" id="7">
+                  <input type="radio" class="d-none" name="options">
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Customers</span>
+                  <span class="d-block d-sm-none">
+                    <i >Customers</i>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="chartLineGreen"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <div class="card ">
+          <div class="card-header">
+            <h5 class="card-category">Products</h5>
+            <h2 class="card-title"> Top 10  Most Susceptible Returned Products </h2>
+            
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table tablesorter " id="">
+                <thead class=" text-primary">
+                  <tr>
+                    <th>
+                       Product's Name  
+                    </th>
+                    <th>
+                       Returns Occurrence
+                    </th>
+                   
+                  </tr>
+                </thead>
+                <tbody>
+
+
+                  {% for o in  df_top10_returned  %}
+                 
+              <tr>
+                <td>
+                 {{o.Product_Name}}
+               </td>
+               <td>
+                
+                {{o.returned_predictions}}
+                
+               </td>
+    
+              </tr>
+                  
+                {% endfor %}
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-12">
+        <div class="card ">
+          <div class="card-header">
+            <h5 class="card-category">Products</h5>
+            <h2 class="card-title"> Top 10 Bought-Together Products </h2>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table tablesorter " id="">
+                <thead class=" text-primary">
+                  <tr>
+                    <th>
+                      Bought Product 
+                    </th>
+                    <th>
+                      Susceptible Bought Product
+                    </th>
+                   
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  {% for o in apriori %}
+  
+              <tr>
+                <td>
+                 {{o.item_1}}
+               </td>
+               <td>
+                {{o.item_2}}
+                </td>
+    
+              </tr>
+   
+                {% endfor %}
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: none" id="jsonData" data-json="{{ profit_pred }}"></div>
+    <div style="display: none" id="jsonData2" data-json="{{ profit_pred2 }}"></div>
+   
+    <div style="display: none" id="df_category_returned" data-json="{{ df_category_returned }}"></div>
+    <div style="display: none" id="df_sub_category_returned" data-json="{{ df_sub_category_returned }}"></div>
+    
+    <div style="display: none" id="Top5Customers" data-json="{{ Top5Customers }}"></div>
+    <div style="display: none" id="Top5localisation" data-json="{{ Top5localisation }}"></div>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+
+
+
+  <script>
+    
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      demo.initDashboardPageCharts();
+
+    });
+  </script>
+
+{% endblock javascripts %}

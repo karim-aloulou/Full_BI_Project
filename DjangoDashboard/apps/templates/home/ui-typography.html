@@ -1,0 +1,41 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Tables {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card ">
+      <div class="card-header">
+        <h4 class="card-title"> Returns Visualisation</h4>
+      </div>
+      <style>
+        iframe{
+            width: 100%;
+           
+        }
+    </style>
+    
+      <iframe title="returned" width="1500" height="700" src="https://app.powerbi.com/reportEmbed?reportId=a941928c-4209-4774-bb40-078ff9122045&autoAuth=true&ctid=513486ec-6643-4f17-a508-76478311be42" frameborder="0" allowFullScreen="true"></iframe>
+    </div>
+  </div>
+</div> 
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script>
+  // Selecting the iframe element
+  var iframe = document.getElementById("myIframe");
+  
+  // Adjusting the iframe height onload event
+  iframe.onload = function(){
+      iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+  }
+  </script>
+  {% endblock javascripts %}

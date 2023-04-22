@@ -1,0 +1,63 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Predict Eligibility For Discounts {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+        <div class="row">
+           <div class="col-md-5">
+            <div class="card">
+              &nbsp; &nbsp;&nbsp; &nbsp;
+            <center>  <h2 class="card-title">Predict Eligibility For Discounts</h2> 
+              <h5 >Customer's ID</h5> 
+            <select class="col-md-4">
+              <option value="">--ID's here--</option>
+              {% for i in data_got %}
+              <option value="{{ i.FK_Customer }} ">{{ i.FK_Customer }}</option>
+              {% endfor %}
+            </select> </center>
+            &nbsp; &nbsp;&nbsp; &nbsp;
+                <form action = "" method="post">
+                    {% csrf_token %}
+                 
+
+                    <center> <div class="col-md-4 px-md-1">
+                      
+                      <div class="form-group">
+                         
+                          
+                          {{ form.FK_Customer}}
+                        </div>
+                      </div> 
+
+                   
+                   
+                    <input type="submit"class="btn btn-fill btn-primary"  value="Submit">
+                </form> </center>
+                &nbsp; &nbsp;
+        
+                
+            {% if cluster.0.Profit >= 1200  %}
+             
+            <center> <h2  style="color:green"> This Customer is eligible for discouts </h2> </center>
+
+            {% endif  %}
+            {% if cluster.0.Profit  <= 1200  %}
+             
+           <center> <h2  style="color:red"> This Customer is not eligible for discouts </h2> </center>
+
+            {% endif  %}  
+            
+             </div>
+          </div>  
+      </div>
+      
+
+      
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

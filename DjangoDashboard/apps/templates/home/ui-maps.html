@@ -1,0 +1,30 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Maps {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-12">
+    <div class="card ">
+      <div class="card-header">
+        <h4 class="card-title"> Our Localisation </h4>
+      </div>
+      <style>
+        iframe{
+            width: 100%;
+           
+        }
+    </style>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2683.0198562781325!2d10.187412199616393!3d36.89833048793468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12e2cb7454c6ed51%3A0x683b3ab5565cd357!2sESPRIT!5e0!3m2!1sfr!2stn!4v1672437198768!5m2!1sfr!2stn" width="1280" height="720" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</div> 
+
+
+
+{% endblock content %}
+
+

@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "CubeOlap_Final", "CubeOlap_Final\CubeOlap_Final.dwproj", "{77163E2E-C20E-4DE2-83B2-A13FD62F4247}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77163E2E-C20E-4DE2-83B2-A13FD62F4247}.Development|Default.ActiveCfg = Development
+		{77163E2E-C20E-4DE2-83B2-A13FD62F4247}.Development|Default.Build.0 = Development
+		{77163E2E-C20E-4DE2-83B2-A13FD62F4247}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
